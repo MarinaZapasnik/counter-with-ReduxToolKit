@@ -78,26 +78,26 @@ export const Counter = () => {
         return count + values.stepValue > values.maxValue;  
     }, [count, values.stepValue, values.maxValue])
 
-    const getValuesHandler = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: 'minValue' | 'maxValue' | 'stepValue') => {
-        dispatch(GetValuesAC(event, value))
-        setCountToLocalStorage(null)  
+    const getValuesHandler = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: SettingsProps) => {
+        dispatch(GetValuesAC({event, value}))
+        //setCountToLocalStorage(null)  
     }    
 
     const setCountHandler = () => {
         if (!isIncorrectValues) {
-            dispatch(SetCountAC(values.minValue))
+            dispatch(SetCountAC({minValue: values.minValue}))
         } 
     }
 
     const incrementHahdler = () => {
         if (typeof(count) === 'number') {
             const newCount = count + values.stepValue
-            dispatch(IncrementAC(newCount)) 
+            dispatch(IncrementAC({newCount})) 
         }
     }
 
     const resetHandler = () => {
-        dispatch(ResetAC (values.minValue))
+        dispatch(ResetAC ({minValue: values.minValue}))
     }
 
     const setSettingsHandler = () => {
