@@ -10,6 +10,6 @@ export const PaperContentContainer = styled(Paper)({
     margin: '20px',
     gap: '30px',
     padding: '30px',
-    backgroundColor: '#82ab6d',
+    backgroundColor: '#f8c9bf',
     borderRadius: '20px'
 })
