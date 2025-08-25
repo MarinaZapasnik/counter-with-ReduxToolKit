@@ -1,11 +1,7 @@
 import { createAction, createReducer } from "@reduxjs/toolkit"
-import { ChangeEvent } from "react"
-import { SettingsProps } from "../app/Counter"
 import { getCountFromLocalStorage } from "../utils/localStorageService"
+import { GetValuesAC } from "./values-reducer"
 
-export const GetValuesAC = createAction<{
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    value: SettingsProps}>('count/getValues')
 
 export const SetCountAC = createAction<{minValue: number}> ('count/setCount') 
 
@@ -21,20 +17,19 @@ const initialCount = getCountFromLocalStorage()
 export const countReducer = createReducer(initialCount, builder => {
     builder 
         .addCase(GetValuesAC, (state) => {
-            return null
+            return state = null
         })
         .addCase(SetCountAC, (state, action) => {
-            return action.payload.minValue
+            return state = action.payload.minValue
         })
         .addCase(IncrementAC, (state, action) => {
-            return action.payload.newCount
+            return state = action.payload.newCount
         })
         .addCase(ResetAC, (state, action) => {
-            return action.payload.minValue
+            return state = action.payload.minValue
         })
         .addCase(SetSettingsAC, (state) => {
-            return null
+            return state = null
         })
 })
 
-//2/29

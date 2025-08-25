@@ -5,13 +5,14 @@ import { Button, ButtonGroup, CssBaseline, TextField, Typography } from "@mui/ma
 import { ChangeEvent, useEffect, useMemo } from "react";
 import { useAppDispatch } from '../common/hooks/useAppDispatch';
 import { useAppSelector } from '../common/hooks/useAppSelector';
-import { GetValuesAC, IncrementAC, ResetAC, SetCountAC, SetSettingsAC } from '../model/count-reducer';
-import { selectCount } from '../model/count-selectors';
-import { selectValues } from '../model/values-selectors';
-import { setCountToLocalStorage, setValuesToLocalStorage } from "../utils/localStorageService";
 import { CounterBox } from "../components/CounterBox/CounterBox";
 import { PaperContainer } from "../components/PaperContainer/PaperContainer";
 import { PaperContentContainer } from "../components/PaperContentContainer/PaperContentContainer";
+import { IncrementAC, ResetAC, SetCountAC, SetSettingsAC } from '../model/count-reducer';
+import { selectCount } from '../model/count-selectors';
+import { selectValues } from '../model/values-selectors';
+import { setCountToLocalStorage, setValuesToLocalStorage } from "../utils/localStorageService";
+import { GetValuesAC } from '../model/values-reducer';
 
 const  MIN_LIMIT_VALUE:number = 0 
 const  MAX_LIMIT_VALUE:number = 500 
@@ -80,7 +81,6 @@ export const Counter = () => {
 
     const getValuesHandler = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: SettingsProps) => {
         dispatch(GetValuesAC({event, value}))
-        //setCountToLocalStorage(null)  
     }    
 
     const setCountHandler = () => {
