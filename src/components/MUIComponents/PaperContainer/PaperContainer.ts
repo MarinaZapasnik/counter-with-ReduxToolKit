@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import { Paper } from "@mui/material";
-import flowers from '../../assets/flowers.avif'
+import { Paper, Theme } from "@mui/material";
+import flowers from '../../../assets/flowers.avif'
+import darkFlowers from '../../../assets/dark-flowers.avif'
 
 
-export const PaperContainer = styled(Paper)({
+export const PaperContainer = styled(Paper)<{theme: Theme}>(({theme}) => ({
     display: 'flex',
     flexDirection: 'column',
     padding: '20px',
@@ -11,5 +12,7 @@ export const PaperContainer = styled(Paper)({
     borderRadius: '20px',
     height: '500px',
     minWidth: '360px',
-    backgroundImage: `url(${flowers})`
-})
+    backgroundImage: theme.palette.mode === 'light' 
+        ? `url(${flowers})`
+        : `url(${darkFlowers})`
+}))

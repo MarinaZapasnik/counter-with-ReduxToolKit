@@ -1,6 +1,6 @@
-import { Box, styled } from "@mui/material";
+import { Box, styled, Theme } from "@mui/material";
 
-export const CounterBox = styled(Box)({
+export const CounterBox = styled(Box)<{theme: Theme}>(({theme}) => ({
     display: 'flex',
     flexDirection: 'row' ,
     justifyContent: 'center',
@@ -11,6 +11,8 @@ export const CounterBox = styled(Box)({
     minWidth: '100vw',
     minHeight: '100vh',
     margin: '0 auto',
-    background: '#fed470'
-})
+    background: theme.palette.mode === 'light' 
+    ? '#fffefe'
+    : '#1e2035'
+}))
 

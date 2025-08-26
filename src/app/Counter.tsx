@@ -18,6 +18,7 @@ const  MIN_LIMIT_VALUE:number = 0
 const  MAX_LIMIT_VALUE:number = 500 
 const  MIN_STEP_VALUE:number = 1 
 
+
 export type ValuesProps = {
     minValue: number 
     maxValue: number
@@ -106,6 +107,7 @@ export const Counter = () => {
 
     return (
         <CssBaseline>
+            
             <CounterBox>
 
             <PaperContainer>
